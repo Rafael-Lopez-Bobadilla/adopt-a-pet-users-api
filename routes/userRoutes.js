@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-/*const {
-  getUser,
-  updateUser,
-  updateUserData
-} = require('../controllers/userController')*/
+const {
+  updateFavorites,
+  getFavorites
+} = require('../controllers/userController')
+
 const {
   signup,
   login,
@@ -15,11 +15,8 @@ const {
 router.post('/signup', signup)
 router.post('/login', login)
 
-//router.patch('/updateUserData', protect, updateUserData)
+router.patch('/updateFavorites', protect, updateFavorites)
+router.get('/getFavorites', protect, getFavorites)
 router.get('/logout', protect, logout)
-
-/*router.route('/:id')
-  .get(getUser)
-  .patch(updateUser)*/
 
 module.exports = router
